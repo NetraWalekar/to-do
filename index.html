@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>ToDo App</h1>
+    <div id="task-container" class="todo-item">
+    </div>
+    <input type="text" placeholder="Enter a task" id="input-task" class="input" />
+    <button onclick="addtotask()" class="add-button"> Add Task </button>
+
+    <script>
+        const tasks = [];
+
+        function loadlocalstorage() {
+            const alltasks = JSON.parse(localStorage.getItem('alltasks'));
+            if (alltasks) {
+                tasks.push(...alltasks)
+            }
+            loadtasks();
+        }
+        loadlocalstorage();
+        function loadtasks() {
+
+            localStorage.setItem('alltasks', JSON.stringify(tasks));
+            const taskElement = document.getElementById("task-container");
+            taskElement.innerHTML = '';
+
+            for (const task of tasks) {
+                taskElement.innerHTML += `
+           <div class="to-do-div">
+           ${task}
+           <button type="button" class="button" onclick="delitem('${task}')"> Remove</button>
+           </div> `
+            }
+        }
+        function addtotask() {
+            const InputtaskElement = document.getElementById('input-task');
+            const task = InputtaskElement.value;
+            if (!task) {
+                alert('Enter task');
+                return;
+            }
+            tasks.unshift(task);
+            loadtasks();
+            InputtaskElement.value = '';
+        }
+        function delitem(task) {
+            const taskIndex = tasks.indexOf(task)
+            tasks.splice(taskIndex, 1)
+            loadtasks();
+        }
+    </script>
+</body>
+
+</html>

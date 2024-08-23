@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+    color: cadetblue;
+    font-family: monotype corsiva;
+    font-size: 50px;
+    margin-bottom: 60px;
+}
+
+.todo-item{
+    border: none;
+    box-shadow: 5px 5px 8px rgb(198, 207, 207);
+    color: rgb(5, 54, 43);
+    margin: 15px;
+    width: 700px;
+    font-size: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.button{
+    width: 80px;
+    background-color: rgb(198, 223, 223);
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+    margin-right: 9px;
+    cursor: pointer;
+}
+.add-button{
+    width: 80px;
+    background-color: rgb(198, 223, 223);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+    cursor: pointer;
+
+}
